@@ -1,15 +1,17 @@
-import ComponentHeader from './components/header/componentHeader';
-import ComponentSideNav from './components/sideNav/componentSideNav';
+import ComponentHeader from "./components/header/componentHeader";
+import ComponentSideNav from "./components/sideNav/componentSideNav";
 
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
+    <div className="front-page">
       <ComponentHeader />
-      <ComponentSideNav />
-      <div className="main-content">
-        <Outlet/>
+      <div className="app-with-sidebar">
+        <ComponentSideNav />
+        <div className="full-width">
+          <Outlet />
+        </div>
       </div>
     </div>
   );
