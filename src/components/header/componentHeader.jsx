@@ -1,5 +1,3 @@
-import './stylesHeader.css'
-
 const ComponentHeader = () => {
   return (
     <header className="header">
