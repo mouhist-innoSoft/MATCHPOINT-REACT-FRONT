@@ -1,7 +1,11 @@
-import api from './axiosConfig';
+import { useState } from 'react';
+import useAxiosWithAlert from '../axiosConfig';
 
-class AuthService {
-  async login(email, senha) {
+const useAuthService = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const api = useAxiosWithAlert();
+
+  const login = async (email, senha) => {
     try {
       const response = await api.post('/login', {
         email: email,
@@ -11,21 +15,24 @@ class AuthService {
       const token = response.data.token;
       localStorage.setItem('authToken', token);
 
+      setIsAuthenticated(true); // Atualiza o estado de autenticação
       return token;
     } catch (error) {
       console.error('Erro no login:', error);
       throw error;
     }
-  }
+  };
 
-  logout() {
+  const logout = () => {
     localStorage.removeItem('authToken');
-  }
+    setIsAuthenticated(false); // Atualiza o estado para deslogado
+  };
 
-  isAuthenticated() {
-    const token = localStorage.getItem('authToken');
-    return token !== null;
-  }
-}
+  return {
+    isAuthenticated,
+    login,
+    logout
+  };
+};
 
-export default new AuthService();
+export default useAuthService;

@@ -19,8 +19,8 @@ setupIonicReact();
 
 const App = () => {
 
-  const { alertData, hideAlert } = useAlert(); 
-  
+  const { alertData, hideAlert } = useAlert();
+
   return (
     <div className="front-page">
       <ComponentHeader />
