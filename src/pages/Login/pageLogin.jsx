@@ -12,7 +12,7 @@ const PageLogin = () => {
       const token = await AuthService.login(email, password);
       console.log('Login bem-sucedido!', token);
     } catch (error) {
-      setError('Falha ao fazer login. Verifique suas credenciais.');
+      setError(error, 'Falha ao fazer login. Verifique suas credenciais.');
     }
   };
 
