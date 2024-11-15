@@ -16,13 +16,13 @@ body, html {
 }
 
 .sidenav {
+  padding: 10px;
   height: 100%;
   background-color: #444;
   color: #fff;
 }
 
 .sidenav a {
-  padding: 35px;
   color: #fff;
   text-decoration: none;
 }
