@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import PageHome from './pages/Home/pageHome';
 import PageLogin from './pages/Login/pageLogin';
-import App from './App';
+import App from './app';
 
 const router = createBrowserRouter([
   {
