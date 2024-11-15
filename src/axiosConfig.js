@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { useAlert } from './AlertContext';
+import { useAlert } from './components/AlertContext';
+import AuthService from './services/authService';
 
-export const useAxiosWithAlert = () => {
+const useAxiosWithAlert = () => {
   const { showAlert } = useAlert();
 
   const api = axios.create({
@@ -12,7 +13,6 @@ export const useAxiosWithAlert = () => {
     }
   });
 
-  // Interceptor de requisições
   api.interceptors.request.use(
     (config) => {
       const token = localStorage.getItem('authToken');
@@ -26,12 +26,26 @@ export const useAxiosWithAlert = () => {
 
   api.interceptors.response.use(
     (response) => response,
-    (error) => {
+    async (error) => {
       const message = error.response?.data?.message || 'Ocorreu um erro na requisição.';
-      showAlert(message);
+      
+      if (error.response?.status === 401) {
+        AuthService.logout();
+        window.location.href = '/login';
+        showAlert('Sessão expirada, por favor, faça login novamente.');
+      } else {
+        showAlert(message);
+      }
+
+      if (!error.response) {
+        showAlert('Erro de conexão. Verifique sua internet.');
+      }
+
       return Promise.reject(error);
     }
   );
 
   return api;
 };
+
+export default useAxiosWithAlert;

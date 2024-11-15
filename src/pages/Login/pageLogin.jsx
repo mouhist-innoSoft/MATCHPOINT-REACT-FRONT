@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IonInput, IonButton, IonItem, IonLabel } from '@ionic/react';
-import AuthService from './authService'; 
+import AuthService from '../../services/authService'; 
 
 const PageLogin = () => {
   const [email, setEmail] = useState('');
