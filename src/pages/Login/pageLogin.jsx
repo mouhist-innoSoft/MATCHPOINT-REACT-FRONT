@@ -22,7 +22,7 @@ const PageLogin = () => {
         <IonInput
           label="Email"
           labelPlacement="floating"
-          placeholder="Enter email"
+          placeholder="Entre o email"
           type="email"
           value={email}
           onIonChange={e => setEmail(e.detail.value)}
@@ -30,9 +30,9 @@ const PageLogin = () => {
       </IonItem>
       <IonItem>
         <IonInput
-          label="Password"
+          label="Senha"
           labelPlacement="floating"
-          placeholder="Enter password"
+          placeholder="Entre a senha"
           type="password"
           value={password}
           onIonChange={e => setPassword(e.detail.value)}
