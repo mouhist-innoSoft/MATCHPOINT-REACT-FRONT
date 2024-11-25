@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 import { IonInput, IonButton, IonItem, IonLabel } from '@ionic/react'
-import AuthService from '../../services/authService'
+import useAuthService from '../../services/authService';
 
 const PageLogin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState(null) // Adicionando o estado de erro
+  const [error, setError] = useState(null)
+
+  const { login } = useAuthService();
 
   const handleLogin = async () => {
     try {
-      const token = await AuthService.login(email, password)
-      console.log('Login bem-sucedido!', token)
+      const token = await login(email, password);
+      console.log('Login bem-sucedido!', token);
     } catch (error) {
-      setError(error, 'Falha ao fazer login. Verifique suas credenciais.')
+      setError('Falha ao fazer login. Verifique suas credenciais.');
     }
-  }
+  };
 
   return (
     <div>

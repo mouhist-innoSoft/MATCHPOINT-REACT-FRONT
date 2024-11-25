@@ -27,7 +27,7 @@ const useAxiosWithAlert = () => {
   api.interceptors.response.use(
     (response) => response,
     async (error) => {
-      const message = error.response?.data?.message || 'Ocorreu um erro na requisição.';
+      const message = error.response?.data?.message || 'Erro inesperado! Entre em contato com algum administrador.';
       
       if (error.response?.status === 401) {
         AuthService.logout();
