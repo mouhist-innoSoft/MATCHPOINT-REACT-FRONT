@@ -21,12 +21,24 @@ const PageLogin = () => {
   return (
     <div>
       <IonItem>
-        <IonLabel position="floating">Email</IonLabel>
-        <IonInput type="email" value={email} onIonChange={e => setEmail(e.detail.value)} />
+        <IonInput
+          label="Email"
+          labelPlacement="floating"
+          placeholder="Entre o email"
+          type="email"
+          value={email}
+          onIonChange={e => setEmail(e.detail.value)}
+        ></IonInput>
       </IonItem>
       <IonItem>
-        <IonLabel position="floating">Password</IonLabel>
-        <IonInput type="password" value={password} onIonChange={e => setPassword(e.detail.value)} />
+        <IonInput
+          label="Senha"
+          labelPlacement="floating"
+          placeholder="Entre a senha"
+          type="password"
+          value={password}
+          onIonChange={e => setPassword(e.detail.value)}
+        ></IonInput>
       </IonItem>
       {error && <p style={{ color: 'red' }}>{error}</p>} {/* Exibindo mensagem de erro */}
       <IonButton expand="block" onClick={handleLogin}>
