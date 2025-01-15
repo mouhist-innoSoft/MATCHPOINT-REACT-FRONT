@@ -1,0 +1,21 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 5px;
+  }
+
+  .login-container ion-item,
+  .login-container ion-button {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+  }
+
+.center-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1em;
+}

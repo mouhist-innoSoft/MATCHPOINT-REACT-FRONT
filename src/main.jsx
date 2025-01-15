@@ -9,6 +9,8 @@ import PageHome from './pages/Home/PageHome'
 import PageLogin from './pages/Login/pageLogin'
 import App from './app'
 import { AlertProvider } from './components/AlertContext'
+import CadastroUsuario from './pages/CadastroUsuario/cadastroUsuario'
+import { ErrorProvider } from './contexts/ErrorContext'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <PageLogin />
+      },
+      {
+        path: 'cadastro-usuario',
+        element: <CadastroUsuario />
       }
     ]
   }
@@ -33,8 +39,10 @@ const root = createRoot(container)
 
 root.render(
   <StrictMode>
-    <AlertProvider>
-      <RouterProvider router={router} />
-    </AlertProvider>
+    <ErrorProvider>
+      <AlertProvider>
+        <RouterProvider router={router} />
+      </AlertProvider>
+    </ErrorProvider>
   </StrictMode>
 )

@@ -24,6 +24,7 @@ import '@ionic/react/css/palettes/dark.system.css'
 
 import { Outlet } from 'react-router-dom'
 import { useAlert } from './components/AlertContext'
+import { ErrorProvider } from './contexts/ErrorContext'
 
 setupIonicReact()
 
@@ -32,6 +33,7 @@ const App = () => {
 
   return (
     <>
+    <ErrorProvider>
       <IonMenu contentId="main-content">
         <IonHeader>
           <IonToolbar>
@@ -60,6 +62,7 @@ const App = () => {
           <Outlet />
         </IonContent>
       </IonPage>
+      </ErrorProvider>
     </>
   )
 }
