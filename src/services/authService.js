@@ -7,7 +7,7 @@ const useAuthService = () => {
 
   const login = async (email, senha) => {
     try {
-      const response = await api.post('/login', {
+      const response = await api.post('/api/auth/login', {
         email: email,
         senha: senha
       });
@@ -15,7 +15,7 @@ const useAuthService = () => {
       const token = response.data.token;
       localStorage.setItem('authToken', token);
 
-      setIsAuthenticated(true); // Atualiza o estado de autenticação
+      setIsAuthenticated(true); 
       return token;
     } catch (error) {
       console.error('Erro no login:', error);
@@ -25,7 +25,7 @@ const useAuthService = () => {
 
   const logout = () => {
     localStorage.removeItem('authToken');
-    setIsAuthenticated(false); // Atualiza o estado para deslogado
+    setIsAuthenticated(false);
   };
 
   return {
