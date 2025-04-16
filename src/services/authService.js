@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import useAxiosWithAlert from '../axiosConfig';
+import api from '../axiosConfig';
 
 const useAuthService = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const api = useAxiosWithAlert();
 
   const login = async (email, senha) => {
     try {

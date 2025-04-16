@@ -50,14 +50,11 @@ const App = () => {
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
-        <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
               <IonMenuButton></IonMenuButton>
             </IonButtons>
-            <IonTitle>MatchPoint</IonTitle>
           </IonToolbar>
-        </IonHeader>
         <IonContent className="ion-padding">
           <Outlet />
         </IonContent>

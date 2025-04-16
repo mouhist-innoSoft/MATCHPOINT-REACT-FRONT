@@ -1,6 +1,6 @@
 import axios from 'axios';
 import authService from './services/authService';
-import { showError } from './contexts/ErrorContext'; // Importe a função showError corretamente
+import { showError } from './contexts/ErrorContext';
 
 const api = axios.create({
   baseURL: 'http://localhost:8080',
